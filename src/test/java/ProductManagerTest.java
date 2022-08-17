@@ -15,6 +15,7 @@ public class ProductManagerTest {
     Product smartphone1 = new Smartphone(23, "galaxy5", 18_000, "Samsung");
     Product smartphone2 = new Smartphone(56, "Line", 49_000, "Xiaome");
     Product smartphone3 = new Smartphone(90, "Plus", 100_000, "Apple");
+    Product book4 = new Book(11, "Отцы и дети", 450, "Иван Тургенев");
 
 
     @Test
@@ -57,6 +58,18 @@ public class ProductManagerTest {
 
         Product[] expected = {};
         Product[] actual = manager.searchBy("Blabla");
+    }
+
+    @Test
+    public void FinfCoupleProduct() {
+        manager.add(book1);
+        manager.add(book2);
+        manager.add(book3);
+        manager.add(book4);
+
+
+        Product[] expected = {book1, book4};
+        Product[] actual = manager.searchBy("Иван Тургенев" );
     }
 
 }
